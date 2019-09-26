@@ -22,6 +22,11 @@ public class LoginPage {
 	@FindBy(xpath = "//span[text()='Login']")
 	private WebElement botaoLogin;
 	
+	@FindBy(xpath = "//span[text()='Remove Frame']")
+	private WebElement botaoRemoverFram;
+	
+	@FindBy(xpath = "//p[contains(text(), 'The Email field must contain a valid email address.')]")
+	private WebElement txtLoginInvalido;
 	
 	public void preencher_email(String email) { 
 		campoEmail.sendKeys(email);
@@ -39,6 +44,17 @@ public class LoginPage {
 		Helper.elemento_existe(botaoLogin, 50);
 		return botaoLogin.isDisplayed();
 	}
-
+	
+	public void clicar_remover_frame() {
+		if(Helper.elemento_existe(botaoRemoverFram, 10)){
+			botaoRemoverFram.click();
+		}
+	}
+	
+	public boolean validar_login_falha() {
+		
+		return	Helper.elemento_existe(txtLoginInvalido, 10);
+		
+	}
 
 }

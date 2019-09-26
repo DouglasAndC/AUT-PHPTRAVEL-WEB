@@ -16,9 +16,18 @@ public class Helper {
 	}
 	
 	public static boolean elemento_existe(WebElement elemento, int timeout) {
-		aguardar_elemento(elemento,timeout);
+		try {
+			
+			aguardar_elemento(elemento,timeout);
+			
+			return elemento.isDisplayed();
+			
+		} catch (Exception e) {
+			
+			return false;
+			
+		}
 		
-		return elemento.isDisplayed();
 	}
 
 }

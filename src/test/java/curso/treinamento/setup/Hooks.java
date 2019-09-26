@@ -12,8 +12,8 @@ import cucumber.api.java.Before;
 
 public class Hooks {
 	
-	public static WebDriver driver;
-	public static ResourceBundle bundle = ResourceBundle.getBundle("project");
+	private static WebDriver driver;
+	private static ResourceBundle bundle = ResourceBundle.getBundle("project");
 	
 	@Before
 	public void startTest(Scenario scenario) {

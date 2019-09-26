@@ -9,6 +9,7 @@ import cucumber.api.java.pt.Quando;
 import curso.treinamento.pages.HomePage;
 import curso.treinamento.pages.LoginPage;
 import curso.treinamento.setup.Hooks;
+import curso.treinamento.utils.Helper;
 
 
 public class LoginSteps {
@@ -19,7 +20,7 @@ public class LoginSteps {
 
 	@Dado("que eu esteja na tela de login")
 	public void que_eu_deseje_logar_no_sistema() throws InterruptedException {
-		
+		loginPage.clicar_remover_frame();
 		Assert.assertTrue("Página Login não foi apresentada.", loginPage.validar_pagina());
 	}
 
@@ -39,8 +40,7 @@ public class LoginSteps {
 
 	@Então("é apresentado a mensagem {string}")
 	public void é_apresentado_a_mensagem(String mensagem) {
-		
-		
+		Assert.assertTrue(loginPage.validar_login_falha());
 	}
 
 }
